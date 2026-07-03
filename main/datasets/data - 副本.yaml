@@ -1,0 +1,19 @@
+
+path : main/datasets
+train: train
+val: valid
+test: test
+
+nc: 8
+# names: ['Black rot of tea', 'Brown blight of tea', 'Leaf rust of tea', 'Red Spider infested tea leaf', 'Tea Mosquito bug infested leaf', 'Tea leaf', 'White spot of tea', 'disease']
+
+names : [
+    '茶叶黑腐病',
+    '茶叶褐斑病',
+    '茶叶锈病',
+    '红蜘蛛危害茶叶',
+    '茶蚊虫危害茶叶',
+    '健康茶叶',
+    '茶叶白斑病',
+    '其他病害'
+]

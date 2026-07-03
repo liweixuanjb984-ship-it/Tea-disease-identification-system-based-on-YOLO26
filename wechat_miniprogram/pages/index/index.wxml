@@ -1,0 +1,60 @@
+<view class="page">
+  <view class="panel">
+    <view class="title">茶叶病害检测</view>
+    <view class="subtitle">上传图片或视频，调用云端 YOLOv8 服务执行检测</view>
+
+    <view class="server-row">
+      <input
+        class="server-input"
+        value="{{serverAddress}}"
+        placeholder="例如 https://ottoordersystem.site"
+        bindinput="onServerAddressInput"
+      />
+      <button class="mini-btn" bindtap="testServer">测试</button>
+    </view>
+
+    <view class="actions">
+      <button class="btn primary" bindtap="chooseImage">选择图片</button>
+      <button class="btn" bindtap="chooseVideo">选择视频</button>
+    </view>
+
+    <view wx:if="{{filePath}}" class="file-box">
+      <view class="file-label">已选择</view>
+      <view class="file-path">{{filePath}}</view>
+    </view>
+
+    <button class="detect-btn" loading="{{detecting}}" disabled="{{!filePath || detecting}}" bindtap="startDetect">
+      {{detecting ? '检测中...' : '开始检测'}}
+    </button>
+  </view>
+
+  <view wx:if="{{previewPath}}" class="panel">
+    <view class="section-title">输入预览</view>
+    <image wx:if="{{fileType === 'image'}}" class="preview" src="{{previewPath}}" mode="widthFix"></image>
+    <video wx:if="{{fileType === 'video'}}" class="video" src="{{previewPath}}" controls></video>
+  </view>
+
+  <view wx:if="{{resultUrl}}" class="panel">
+    <view class="section-title">检测结果</view>
+    <image wx:if="{{resultType === 'image'}}" class="preview" src="{{resultUrl}}" mode="widthFix"></image>
+    <video wx:if="{{resultType === 'video'}}" class="video" src="{{resultUrl}}" controls></video>
+    <view class="summary">检测目标数：{{count}}</view>
+    <view class="summary">耗时：{{elapsed}} 秒</view>
+  </view>
+
+  <view wx:if="{{detections.length}}" class="panel">
+    <view class="section-title">检测明细</view>
+    <view class="table">
+      <view class="tr header">
+        <view class="td name">类别</view>
+        <view class="td">置信度</view>
+        <view class="td">坐标</view>
+      </view>
+      <view wx:for="{{detections}}" wx:key="index" class="tr">
+        <view class="td name">{{item.class_name}}</view>
+        <view class="td">{{item.confidenceText}}</view>
+        <view class="td">{{item.boxText}}</view>
+      </view>
+    </view>
+  </view>
+</view>

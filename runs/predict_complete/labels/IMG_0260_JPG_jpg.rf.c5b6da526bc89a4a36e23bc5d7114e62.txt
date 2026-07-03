@@ -1,0 +1,2 @@
+4 0.499219 0.522656 0.251563 0.229687 0.894842 Tea Mosquito bug infested leaf
+4 0.678125 0.789062 0.234375 0.178125 0.868784 Tea Mosquito bug infested leaf

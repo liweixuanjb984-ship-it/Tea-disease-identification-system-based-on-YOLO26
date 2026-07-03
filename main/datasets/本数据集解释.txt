@@ -1,0 +1,10 @@
+本数据集专注于茶叶的病害与健康状态识别，共包含 10,000 张茶叶图片，覆盖了茶叶常见的多种病害及健康叶片状态。数据集共分为 8 类，分别为：
+黑腐病 (Black rot of tea)
+茶褐斑病 (Brown blight of tea)
+茶叶锈病 (Leaf rust of tea)
+红蜘蛛危害叶片 (Red Spider infested tea leaf)
+茶蚊虫危害叶片 (Tea Mosquito bug infested leaf)
+健康茶叶 (Tea leaf)
+白斑病 (White spot of tea)
+其他病害 (disease)
+该数据集适用于茶叶病害识别的 图像分类、目标检测 和 深度学习模型训练，可用于农业智能监测系统、病害自动诊断以及茶叶健康管理等应用场景。

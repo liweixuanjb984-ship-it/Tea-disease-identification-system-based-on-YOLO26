@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>茶叶病害 YOLOv8 检测</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Tea Disease Detection</p>
+          <h1>茶叶病害 YOLOv8 检测平台</h1>
+          <p class="hero-copy">上传图片或视频，云端模型会返回带检测框的结果和类别明细。</p>
+        </div>
+        <div class="health-card">
+          <span class="pulse" id="healthPulse"></span>
+          <div>
+            <p class="health-label">服务状态</p>
+            <p class="health-value" id="healthText">检查中</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel upload-panel">
+          <div class="panel-head">
+            <div>
+              <h2>文件检测</h2>
+              <p>支持 JPG、PNG、WEBP、MP4、AVI、MOV 等格式。</p>
+            </div>
+          </div>
+
+          <label class="drop-zone" id="dropZone">
+            <input id="fileInput" type="file" accept="image/*,video/*" />
+            <span class="upload-icon">↑</span>
+            <strong>选择文件或拖拽到这里</strong>
+            <small id="fileName">尚未选择文件</small>
+          </label>
+
+          <div class="actions">
+            <button id="detectBtn" class="primary" disabled>开始检测</button>
+            <button id="clearBtn" class="secondary" disabled>清空</button>
+          </div>
+
+          <div class="progress" id="progress">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="panel metrics-panel">
+          <div class="metric">
+            <span>检测目标数</span>
+            <strong id="countMetric">0</strong>
+          </div>
+          <div class="metric">
+            <span>耗时</span>
+            <strong id="timeMetric">0.00s</strong>
+          </div>
+          <div class="metric">
+            <span>文件类型</span>
+            <strong id="typeMetric">-</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="result-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>输入预览</h2>
+              <p>当前待检测文件。</p>
+            </div>
+          </div>
+          <div class="preview" id="inputPreview">
+            <span>暂无输入</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>检测结果</h2>
+              <p>云端返回的带框图像或视频。</p>
+            </div>
+            <a id="downloadLink" class="download hidden" href="#" target="_blank" rel="noreferrer">打开结果</a>
+          </div>
+          <div class="preview" id="outputPreview">
+            <span>暂无结果</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-head">
+          <div>
+            <h2>检测明细</h2>
+            <p>图片展示全部结果；视频展示首帧结果和总目标数。</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>类别</th>
+                <th>置信度</th>
+                <th>坐标</th>
+              </tr>
+            </thead>
+            <tbody id="resultRows">
+              <tr>
+                <td colspan="3" class="empty">暂无检测数据</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+    <script src="/web/app.js"></script>
+  </body>
+</html>

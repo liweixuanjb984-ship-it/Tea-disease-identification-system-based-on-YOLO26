@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "茶叶病害检测",
+    "navigationBarBackgroundColor": "#1f7a4d",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7f6"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
